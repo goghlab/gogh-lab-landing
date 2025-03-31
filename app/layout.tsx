@@ -1,15 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/contexts/language-context"
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-playfair",
-})
 
 export const metadata: Metadata = {
   title: "Gogh Studio | Minimalist Design for Modern Brands",
@@ -19,7 +12,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Gogh Studio" }],
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#000000",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -29,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${playfair.variable} font-serif antialiased`}>
+      <body className="font-serif antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
@@ -37,7 +30,5 @@ export default function RootLayout({
     </html>
   )
 }
-
-
 
 import './globals.css'
