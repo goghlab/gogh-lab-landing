@@ -18,20 +18,23 @@ export function MainContent() {
 
   const projects = [
     {
-      title: t("projects.project1.title") || "Minimalist Branding",
-      client: t("projects.project1.client") || "Hong Kong Finance",
-      image: "/placeholder.svg?height=600&width=800",
+      title: t("projects.project1.title") || "智能无人便利店系统",
+      client: t("projects.project1.client") || "AI驱动的全自动购物体验",
+      description: t("projects.project1.description") || "整合AI技术与移动应用，为用户提供24小时自助购物服务。通过手机APP即可完成商品浏览、购买和支付全过程。",
+      image: "/852.png",
     },
     {
-      title: t("projects.project2.title") || "Clean UX Design",
-      client: t("projects.project2.client") || "Tech Startup",
-      image: "/placeholder.svg?height=600&width=800",
+      title: t("projects.project2.title") || "MA-1 全能智能营销助手",
+      client: t("projects.project2.client") || "AI驱动的全栈营销代理",
+      description: t("projects.project2.description") || "一款革新性的AI营销代理工具，能自动完成市场研究、内容创作、媒体设计、发布排程和效果优化，实现多平台营销活动的全流程自动化。",
+      image: "/01img.png",
     },
     {
-      title: t("projects.project3.title") || "Monochrome Web Experience",
-      client: t("projects.project3.client") || "Luxury Retail",
-      image: "/placeholder.svg?height=600&width=800",
-    },
+      title: t("projects.project3.title") || "智能POS系统解决方案",
+      client: t("projects.project3.client") || "Lightspeed零售系统集成",
+      description: t("projects.project3.description") || "为零售商打造的新一代POS系统集成方案，实现库存管理、销售分析、员工管理和客户关系维护的一体化运营。支持多门店管理，提供实时数据同步和智能分析报表。",
+      image: "/images-2.jpg",
+    }
   ]
 
   // Handle mouse movement for 3D effect
@@ -119,7 +122,7 @@ export function MainContent() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white via-white/90 to-gray-400 font-sans">
-            {t("portfolio.title") || "我們的作品"}
+            {t("work.title") || "數碼轉營升級案例分享"}
           </h2>
         </motion.div>
         
@@ -157,17 +160,11 @@ export function MainContent() {
                     }}
                   >
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center">
-                      <div className="w-full max-w-xs mb-4 sm:mb-6 md:mb-8 relative">
+                      <div className="w-full max-w-lg mb-4 sm:mb-6 md:mb-8 relative">
                         <img
-                          src={
-                            index === 0
-                              ? "/placeholder.svg?height=200&width=300&text=Minimalist+Branding"
-                              : index === 1
-                                ? "/placeholder.svg?height=200&width=300&text=Clean+UX+Design"
-                                : "/placeholder.svg?height=200&width=300&text=Monochrome+Web"
-                          }
+                          src={project.image}
                           alt={`${project.title} preview`}
-                          className="w-full h-auto rounded-md shadow-lg border border-white/20 object-cover"
+                          className="w-full h-auto rounded-md shadow-lg border border-white/20 object-cover scale-150"
                         />
                         <div className="absolute -bottom-3 -right-3 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center white-glow border border-white/20 bg-[#030303]">
                           {index === 0 ? (
@@ -180,7 +177,8 @@ export function MainContent() {
                         </div>
                       </div>
                       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 font-sans">{project.title}</h2>
-                      <p className="text-white/70 mb-3 sm:mb-4 md:mb-6 text-sm sm:text-base font-sans">{project.client}</p>
+                      <p className="text-white/70 mb-2 sm:mb-3 text-sm sm:text-base font-sans">{project.client}</p>
+                      <p className="text-white/60 mb-4 sm:mb-6 text-sm sm:text-base font-sans max-w-md">{project.description}</p>
                       <motion.button 
                         className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#0015ff] hover:bg-[#0015ff]/90 transition-colors text-sm sm:text-base border border-[#0015ff]/30 font-sans text-white shadow-lg shadow-[#0015ff]/20"
                         whileHover={{ scale: 1.05 }}

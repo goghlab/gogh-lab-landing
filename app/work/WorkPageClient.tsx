@@ -10,6 +10,7 @@ interface Project {
   id: number
   titleKey: string
   clientKey: string
+  descriptionKey?: string
   image: string
   tagKeys: string[]
 }
@@ -22,21 +23,24 @@ export default function WorkPageClient() {
       id: 1,
       titleKey: "work.project1.title",
       clientKey: "work.project1.client",
-      image: "/placeholder.svg?height=400&width=600",
+      descriptionKey: "work.project1.description",
+      image: "/852.png",
       tagKeys: ["work.project1.tag1", "work.project1.tag2", "work.project1.tag3"],
     },
     {
       id: 2,
       titleKey: "work.project2.title",
       clientKey: "work.project2.client",
-      image: "/placeholder.svg?height=400&width=600",
+      descriptionKey: "work.project2.description",
+      image: "/01img.png",
       tagKeys: ["work.project2.tag1", "work.project2.tag2", "work.project2.tag3"],
     },
     {
       id: 3,
       titleKey: "work.project3.title",
       clientKey: "work.project3.client",
-      image: "/placeholder.svg?height=400&width=600",
+      descriptionKey: "work.project3.description",
+      image: "/images-2.jpg",
       tagKeys: ["work.project3.tag1", "work.project3.tag2", "work.project3.tag3"],
     },
   ]
@@ -59,13 +63,16 @@ export default function WorkPageClient() {
                   alt={`${t(project.titleKey)} for ${t(project.clientKey)}`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105 grayscale"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-white"></div>
               </div>
               <div className="p-4">
                 <h3 className="text-xl font-medium font-sans">{t(project.titleKey)}</h3>
                 <p className="text-white/70 mb-3 font-sans">{t(project.clientKey)}</p>
+                {project.descriptionKey && (
+                  <p className="text-white/60 mb-4 text-sm font-sans">{t(project.descriptionKey)}</p>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {project.tagKeys.map((tagKey, i) => (
                     <span key={i} className="text-xs bg-white/10 px-2 py-1 rounded-full font-sans">
