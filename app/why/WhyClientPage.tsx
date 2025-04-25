@@ -1,10 +1,12 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Square, Circle, Triangle, ArrowLeft } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { SharedLayout } from "@/components/shared-layout"
 import { Footer } from "@/components/footer"
+import { motion } from "framer-motion"
 
 export default function WhyClientPage() {
   const { t } = useLanguage()
@@ -12,16 +14,39 @@ export default function WhyClientPage() {
   return (
     <>
       <SharedLayout>
-        <div className="min-h-screen bg-background text-white p-5 md:p-10 lg:p-16 grid-pattern">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 animate-fade-in font-sans">{t("why.title")}</h1>
+        <div className="min-h-screen bg-background text-white grid-pattern">
+          {/* Hero Banner */}
+          <div className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
+            <Image
+              src="/david-1.jpg"
+              alt="David Statue"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background" />
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-5 md:p-10 lg:p-16">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 font-sans"
+              >
+                {t("why.title")}
+              </motion.h1>
+            </div>
+          </div>
 
-          <div
-            className="max-w-3xl space-y-6 text-lg text-white/80 animate-slide-up font-sans"
-            style={{ animationDelay: "100ms" }}
-          >
-            <p>{t("why.p1")}</p>
-            <p>{t("why.p2")}</p>
-            <p>{t("why.p3")}</p>
+          {/* Content Section */}
+          <div className="p-5 md:p-10 lg:p-16">
+            <div
+              className="max-w-3xl mx-auto space-y-6 text-lg text-white/80 animate-slide-up font-sans"
+              style={{ animationDelay: "100ms" }}
+            >
+              <p>{t("why.p1")}</p>
+              <p>{t("why.p2")}</p>
+              <p>{t("why.p3")}</p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
