@@ -1,5 +1,5 @@
 {
-  "name": "gogh-studio",
+  "name": "gogh-lab-landing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=10.0.0"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
