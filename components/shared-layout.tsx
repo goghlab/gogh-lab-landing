@@ -1,11 +1,11 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Clock } from "@/components/clock"
 import { MobileMenu } from "@/components/mobile-menu"
 import { LanguageSwitch } from "@/components/language-switch"
 import { useLanguage } from "@/contexts/language-context"
-import { Square } from "lucide-react"
 import type { ReactNode } from "react"
 
 interface SharedLayoutProps {
@@ -17,17 +17,20 @@ export function SharedLayout({ children }: SharedLayoutProps) {
 
   return (
     <div className="min-h-screen bg-background text-white flex flex-col grid-pattern">
-      <header className="flex justify-between items-center p-5 md:px-10 lg:px-16">
-        <div className="flex items-center">
+      <header className="flex justify-between items-center px-3 md:px-6 lg:px-10">
+        <div className="flex items-center -mt-3">
           <Link
             href="/"
-            className="text-white font-medium text-xl flex items-center gap-2"
+            className="text-white font-medium text-xl flex items-center"
             aria-label="Gogh Studio Home"
           >
-            <Square className="h-5 w-5 text-white" />
-            <span className="font-sans">
-              Gogh<sup className="text-xs">™</sup>
-            </span>
+            <Image 
+              src="/logo.png" 
+              alt="Gogh Studio Logo"
+              width={200}
+              height={200}
+              className="w-[150px] h-[150px] object-contain"
+            />
           </Link>
         </div>
 
